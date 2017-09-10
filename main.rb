@@ -14,7 +14,7 @@ s3 = Aws::S3::Client.new(
 
 post "/" do
   media_url = params["MediaUrl0"]
-  object_key = Time.now.to_i
+  object_key = Time.now.to_i.to_s
   object_body = open(media_url)
 
   s3.put_object({
