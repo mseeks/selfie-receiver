@@ -2,6 +2,7 @@ require "aws-sdk"
 require "open-uri"
 require "sinatra"
 
+set :bind, "0.0.0.0"
 set :port, 80
 
 s3 = Aws::S3::Client.new(
