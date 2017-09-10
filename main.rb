@@ -17,8 +17,11 @@ post "/" do
   object_key = Time.now.to_i
   object_body = open(media_url)
 
-  obj = s3.bucket("#{ENV["S3_BUCKET_NAME"]}").object(object_key)
-  obj.put(body: object_body)
+  s3.put_object({
+    body: object_body,
+    bucket: ENV["S3_BUCKET_NAME"],
+    key: object_key,
+  })
 
   return 200
 end
