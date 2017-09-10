@@ -12,5 +12,7 @@ RUN bundle install
 # Upload source
 COPY . $APP_HOME
 
+EXPOSE 80
+
 # Start script
 CMD ["bundle", "exec", "ruby", "main.rb"]
